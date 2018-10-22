@@ -13,6 +13,7 @@ With just 1 line of code you can set up a Logger to output on Console and/or Fil
 * Logger creation with one line of code
 * Multiple log levels to filter messages (INFO, WARN, ERROR, FATAL, SILENT)
 * Enable/Disable a logger at any time (useful when working on dev mode)
+* Display Timestamp and message level
 
 ## How to use it ?
 
@@ -34,6 +35,8 @@ You can specify a minimum log level to output :
 Logger logger = new Logger(Logger.ERROR); //info and warn messages won't be displayed
 ```
 
+A good practice is to declare a public static Logger in one of your main classes so you can log messages everywhere !
+
 ## What about Files ?
 
 If you want to output on a log File just create the logger as following :
@@ -45,6 +48,7 @@ Note that you can specify only log File path, the log level will be Logger.INFO 
 ## More control
 
 You can use the full constructor to specify Console & File log level and the log File path
+You can use the log level `Logger.SILENT` to prevent Console or File outputs
 ```java
 Logger logger = new Logger(Logger.WARN, Logger.ERROR, "myLogFile.log");//WARN, ERROR and FATAL on Console, ERROR and FATAL on File
 ```
@@ -53,3 +57,16 @@ You can disable/enable a logger at any time (a Logger is enable after creation b
 logger.disable(); //Pretty self-explanatory
 logger.enable();  //Same here ;)
 ```
+
+## What's next ?
+
+This library aims to be really simple and intuitive with only few functions.
+But here are some features that will be added :
+* Console output coloration depending on message level (using ANSI)
+* Getters and Setters for log levels
+* Enable/disable timestamp
+* Display name of the class that generated the log message
+
+## Contribution
+
+Feel free to send me a message if you see any bug, or if you have any suggestion !
